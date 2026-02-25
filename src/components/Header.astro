@@ -1,7 +1,6 @@
 ---
 // src/components/Header.astro
 
-// We can define our navigation links here to keep the code clean
 const navLinks = [
   { name: 'Our Programs', url: '/programs' },
   { name: 'Educators', url: '/educators' },
@@ -30,10 +29,37 @@ const navLinks = [
 			</a>
 		</nav>
 
-		<button class="md:hidden p-2 text-teal-900" aria-label="Open Menu">
+		<button id="mobile-menu-btn" class="md:hidden p-2 text-teal-900 focus:outline-none" aria-label="Toggle Menu">
 			<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 			</svg>
 		</button>
 	</div>
+
+	<nav id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl flex-col md:hidden">
+		{navLinks.map((link) => (
+			<a href={link.url} class="block px-6 py-4 text-gray-700 font-semibold border-b border-gray-50 hover:bg-teal-50 hover:text-teal-800 transition">
+				{link.name}
+			</a>
+		))}
+		<div class="p-6 bg-gray-50">
+			<a href="tel:210-330-9966" class="flex items-center justify-center gap-2 w-full py-4 bg-teal-700 text-white rounded-xl font-bold text-lg hover:bg-teal-800 transition shadow-md">
+				<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+				Call Now
+			</a>
+		</div>
+	</nav>
 </header>
+
+<script>
+	// This script runs in the browser to handle the button click
+	const btn = document.getElementById('mobile-menu-btn');
+	const menu = document.getElementById('mobile-menu');
+
+	if (btn && menu) {
+		btn.addEventListener('click', () => {
+			menu.classList.toggle('hidden');
+			menu.classList.toggle('flex');
+		});
+	}
+</script>
