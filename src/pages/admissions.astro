@@ -24,9 +24,7 @@ import Layout from '../layouts/Layout.astro';
 				<div class="space-y-8 relative before:absolute before:inset-0 before:ml-6 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
 					
 					<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-						<div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-teal-600 text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md relative z-10">
-							1
-						</div>
+						<div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-teal-600 text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md relative z-10">1</div>
 						<div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
 							<h3 class="font-bold text-gray-900 text-lg mb-2">Inquire & Tour</h3>
 							<p class="text-gray-600 text-sm">Fill out the form to let us know about your family. We will schedule a secure, in-person tour of our San Antonio facility.</p>
@@ -34,9 +32,7 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 
 					<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-						<div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-amber-500 text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md relative z-10">
-							2
-						</div>
+						<div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-amber-500 text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md relative z-10">2</div>
 						<div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
 							<h3 class="font-bold text-gray-900 text-lg mb-2">Application</h3>
 							<p class="text-gray-600 text-sm">After your tour, we will provide you with the official enrollment packet and dietary requirement forms.</p>
@@ -44,9 +40,7 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 
 					<div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-						<div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-rose-500 text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md relative z-10">
-							3
-						</div>
+						<div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white bg-rose-500 text-white font-bold shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-md relative z-10">3</div>
 						<div class="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
 							<h3 class="font-bold text-gray-900 text-lg mb-2">Welcome Home!</h3>
 							<p class="text-gray-600 text-sm">Secure your spot, meet the educators, and get ready for your child's first day at èmote academy.</p>
@@ -59,12 +53,7 @@ import Layout from '../layouts/Layout.astro';
 				<h2 class="text-2xl font-bold text-teal-900 mb-2">Request Enrollment Info</h2>
 				<p class="text-gray-500 mb-8">Tell us a little bit about your child, and we will be in touch shortly.</p>
 				
-				<form action="https://api.web3forms.com/submit" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-					
-					<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-					
-					<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-					<input type="hidden" name="subject" value="NEW ADMISSIONS INQUIRY - èmote academy">
+				<form action="https://formspree.io/f/xaqdazkp" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
 					<div class="md:col-span-1 flex flex-col">
 						<label for="parentName" class="text-sm font-semibold text-gray-700 mb-2">Parent/Guardian Name *</label>
