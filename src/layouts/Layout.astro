@@ -1,23 +1,35 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro'; 
+import Footer from '../components/Footer.astro'; // <-- 1. Add the Footer import
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "èmote academy | Childcare & Preschool in San Antonio, TX",
+	description = "A nurturing childcare center in San Antonio focusing on emotional intelligence, dynamic play, and screen-free learning for neurotypical and neurodivergent children."
+} = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+	<body class="bg-amber-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+		
+		<Header /> 
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+		<main class="flex-grow flex flex-col">
+			<slot /> 
+		</main>
+
+		<Footer /> </body>
+</html>

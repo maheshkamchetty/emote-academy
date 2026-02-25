@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// We can define our program data here to keep the HTML clean
+const programs = [
+  {
+    title: "Emotional Intelligence (EI)",
+    description: "Our core EI program provides a safe environment for your little ones to explore their feelings and expressions, promoting ethical social behavior through engaging puppet shows and drama.",
+    icon: "🎭",
+    color: "bg-rose-50 border-rose-100"
+  },
+  {
+    title: "Dynamic Play & Arts",
+    description: "Children learn through dynamic music exploration, yoga, dance, and structured activities like obstacle training and brain games to foster a lifelong love for arts and culture.",
+    icon: "🎨",
+    color: "bg-amber-50 border-amber-100"
+  },
+  {
+    title: "Pre-K Curriculum",
+    description: "A nurturing educational environment tailored for both neurotypical and neurodivergent children, utilizing research-based teaching methods developed by experienced educators and BCBAs.",
+    icon: "📚",
+    color: "bg-teal-50 border-teal-100"
+  },
+  {
+    title: "Evening Adventures",
+    description: "Flexible evening childcare designed for working parents. We maintain our screen-free philosophy with structured evening activities, healthy dinners, and a calming wind-down routine.",
+    icon: "🌙",
+    color: "bg-indigo-50 border-indigo-100"
+  }
+];
+---
+
+<Layout title="Our Programs | èmote academy San Antonio" description="Explore our dynamic curriculum emphasizing emotional intelligence, creative arts, and inclusive Pre-K education.">
+	
+	<section class="bg-teal-900 py-20 text-center px-6">
+		<div class="max-w-3xl mx-auto">
+			<h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
+				Curriculum by <span class="text-rose-400">Design</span>
+			</h1>
+			<p class="text-xl text-teal-100 leading-relaxed">
+				Explore our dynamic programs that emphasize exploration, creativity, and education without relying on screens.
+			</p>
+		</div>
+	</section>
+
+	<section class="py-20 px-6 bg-white flex-grow">
+		<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+			
+			{programs.map((program) => (
+				<div class={`p-8 rounded-3xl border-2 ${program.color} hover:shadow-lg transition-shadow duration-300 flex flex-col h-full`}>
+					<div class="text-5xl mb-6">{program.icon}</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">{program.title}</h3>
+					<p class="text-gray-600 text-lg leading-relaxed flex-grow">
+						{program.description}
+					</p>
+				</div>
+			))}
+
+		</div>
+	</section>
+
+	<section class="bg-amber-100/50 py-16 px-6 text-center border-t border-amber-200">
+		<div class="max-w-2xl mx-auto">
+			<h2 class="text-3xl font-bold text-teal-900 mb-6">Find the Right Fit for Your Child</h2>
+			<p class="text-gray-700 mb-8 text-lg">We would love to discuss how our programs align with your family's needs.</p>
+			<a href="/admissions" class="inline-block px-8 py-4 bg-rose-500 text-white rounded-full font-bold text-lg hover:bg-rose-600 transition shadow-md">
+				Start the Admissions Process
+			</a>
+		</div>
+	</section>
+
+</Layout>

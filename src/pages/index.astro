@@ -1,11 +1,46 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Testimonial from '../components/Testimonial.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<section class="flex flex-col items-center justify-center text-center px-6 py-20 md:py-32 max-w-5xl mx-auto">
+		<h1 class="text-5xl md:text-7xl font-extrabold text-teal-900 tracking-tight mb-6">
+			Happy Mind, <br class="hidden md:block" />
+			<span class="text-rose-500">Happy Child.</span>
+		</h1>
+		
+		<p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-3xl">
+			San Antonio's premier childcare program dedicated to emotional intelligence, creative exploration, and screen-free learning.
+		</p>
+		
+		<div class="flex flex-col sm:flex-row gap-4">
+			<a href="/admissions" class="px-8 py-4 bg-teal-700 text-white rounded-full font-bold text-lg hover:bg-teal-800 transition shadow-lg">
+				Enroll Now
+			</a>
+			<a href="/programs" class="px-8 py-4 bg-white text-teal-800 rounded-full font-bold text-lg border-2 border-teal-100 hover:border-teal-300 transition shadow-sm">
+				Explore Our Programs
+			</a>
+		</div>
+	</section>
+
+	<section class="bg-white py-16">
+		<div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+			<div class="p-6 bg-amber-100/50 rounded-2xl">
+				<h3 class="text-2xl font-bold text-teal-900 mb-3">No Screens, Just Stories</h3>
+				<p class="text-gray-600">Fostering imagination and real-world connections through puppet shows, drama, and interactive play.</p>
+			</div>
+			<div class="p-6 bg-rose-50 rounded-2xl">
+				<h3 class="text-2xl font-bold text-rose-900 mb-3">Healthy Food & Minds</h3>
+				<p class="text-gray-600">Providing nutritious vegan, vegetarian, and allergen-free meals tailored to your family's needs.</p>
+			</div>
+			<div class="p-6 bg-teal-50 rounded-2xl">
+				<h3 class="text-2xl font-bold text-teal-900 mb-3">Evening Adventures</h3>
+				<p class="text-gray-600">Flexible evening programs designed to support working parents while keeping children engaged.</p>
+			</div>
+		</div>
+	</section>
+
+	<Testimonial />
+
 </Layout>

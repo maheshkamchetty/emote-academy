@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  {
+    name: "Punnami Aluka",
+    role: "Founder & Lead Educator",
+    bio: "With a deep passion for early childhood development, Punnami founded èmote academy to create a space where emotional intelligence is just as important as academic learning. She is dedicated to tailoring the educational experience to fit the unique needs of every child, fostering a safe, screen-free environment where both neurotypical and neurodivergent children can thrive.",
+    imageUrl: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=400&q=80" // Professional educator placeholder
+  },
+  {
+    name: "Our Care Team",
+    role: "Educators & Specialists",
+    bio: "Our dynamic team consists of experienced educators and professionals trained in research-based methods, including BCBA principles. Every staff member shares a unified commitment to nurturing your child's creativity through dynamic play, music, and dramatic arts.",
+    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" // Team placeholder
+  }
+];
+
+const values = [
+  { title: "Continuous Training", description: "Our staff regularly engages in professional development focused on emotional intelligence and behavioral support." },
+  { title: "Inclusive Approach", description: "We celebrate neurodiversity and ensure every educator is equipped to support children with varying learning styles." },
+  { title: "Heart-Centered Care", description: "Above all, our team approaches every interaction with empathy, patience, and a genuine love for teaching." }
+];
+---
+
+<Layout title="Our Educators | èmote academy San Antonio" description="Meet Punnami Aluka and the dedicated team of educators at èmote academy, committed to fostering emotional intelligence in your child.">
+	
+	<section class="bg-teal-900 py-20 text-center px-6">
+		<div class="max-w-3xl mx-auto">
+			<h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
+				Meet Our <span class="text-rose-400">Educators</span>
+			</h1>
+			<p class="text-xl text-teal-100 leading-relaxed">
+				The heart of èmote academy. Discover the passionate professionals dedicated to guiding your child's emotional and educational growth.
+			</p>
+		</div>
+	</section>
+
+	<section class="py-20 px-6 bg-amber-50">
+		<div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+			
+			{team.map((member) => (
+				<div class="bg-white rounded-3xl p-8 shadow-sm border border-amber-100 flex flex-col items-center text-center hover:shadow-md transition">
+					
+					<img 
+						src={member.imageUrl} 
+						alt={member.name} 
+						class="w-32 h-32 rounded-full object-cover mb-6 border-4 border-white shadow-lg"
+					/>
+					
+					<h2 class="text-2xl font-bold text-teal-900 mb-1">{member.name}</h2>
+					<h3 class="text-rose-500 font-semibold uppercase tracking-wide text-sm mb-6">{member.role}</h3>
+					<p class="text-gray-600 leading-relaxed">
+						{member.bio}
+					</p>
+				</div>
+			))}
+
+		</div>
+	</section>
+
+	<section class="py-20 px-6 bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl font-bold text-teal-900 mb-4">The èmote Standard</h2>
+				<p class="text-gray-600 max-w-2xl mx-auto">We hold ourselves to the highest standards of care and education, ensuring your peace of mind while your child is with us.</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{values.map((value) => (
+					<div class="p-6 bg-teal-50 rounded-2xl">
+						<h4 class="text-xl font-bold text-teal-900 mb-3">{value.title}</h4>
+						<p class="text-gray-600">{value.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+</Layout>
