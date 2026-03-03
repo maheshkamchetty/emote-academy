@@ -1,112 +1,102 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const seasons = [
-  {
-    title: "Fall Term",
-    theme: "bg-orange-50 border-orange-100 text-orange-800",
-    iconColor: "text-orange-500",
-    events: [
-      { date: "Sep 1", name: "Labor Day", status: "Closed" },
-      { date: "Oct 13", name: "Staff Development", status: "Closed" },
-      { date: "Nov 11", name: "Veterans Day", status: "Closed" },
-      { date: "Nov 24-28", name: "Thanksgiving Break", status: "Closed" },
-    ]
-  },
-  {
-    title: "Winter Term",
-    theme: "bg-blue-50 border-blue-100 text-blue-800",
-    iconColor: "text-blue-500",
-    events: [
-      { date: "Dec 22 - Jan 2", name: "Winter Break", status: "Closed" },
-      { date: "Jan 19", name: "MLK Jr. Day", status: "Closed" },
-      { date: "Feb 16", name: "Presidents' Day", status: "Closed" },
-    ]
-  },
-  {
-    title: "Spring Term",
-    theme: "bg-teal-50 border-teal-100 text-teal-800",
-    iconColor: "text-teal-500",
-    events: [
-      { date: "Mar 9-13", name: "Spring Break", status: "Camp Open" },
-      { date: "Apr 10", name: "Good Friday", status: "Closed" },
-      { date: "May 25", name: "Memorial Day", status: "Closed" },
-    ]
-  },
-  {
-    title: "Summer Term",
-    theme: "bg-amber-50 border-amber-100 text-amber-800",
-    iconColor: "text-amber-500",
-    events: [
-      { date: "Jun 19", name: "Juneteenth", status: "Closed" },
-      { date: "Jul 4", name: "Independence Day", status: "Closed" },
-    ]
-  }
+const firstHalf = [
+  { date: "September 1", name: "Labor Day", status: "Closed" },
+  { date: "October 13", name: "Staff Development", status: "Closed" },
+  { date: "November 11", name: "Veterans Day", status: "Closed" },
+  { date: "Nov 24 - 28", name: "Thanksgiving Break", status: "Closed" },
+  { date: "Dec 22 - Jan 2", name: "Winter Break", status: "Closed" },
+  { date: "January 19", name: "MLK Jr. Day", status: "Closed" },
+  { date: "February 16", name: "Presidents' Day", status: "Closed" },
+];
+
+const secondHalf = [
+  { date: "March 9 - 13", name: "Spring Break", status: "Camp Open", color: "amber" },
+  { date: "April 10", name: "Good Friday", status: "Closed" },
+  { date: "May 25", name: "Memorial Day", status: "Closed" },
+  { date: "June 19", name: "Juneteenth", status: "Closed" },
+  { date: "July 4", name: "Independence Day", status: "Closed" },
 ];
 ---
 
-<Layout title="Academic Calendar | èmote academy San Antonio" description="View our 2025-2026 schedule of holidays, breaks, and special events.">
+<Layout title="School Calendar | èmote academy San Antonio" description="View our 2025-2026 schedule of holidays, breaks, and special events.">
 	
-	<section class="bg-white pt-20 pb-10 px-6 text-center">
-		<div class="max-w-3xl mx-auto">
-			<div class="inline-flex items-center justify-center bg-teal-50 text-teal-700 font-bold px-4 py-1.5 rounded-full text-sm mb-6 uppercase tracking-widest border border-teal-100">
-				2025 - 2026 Academic Year
-			</div>
-			<h1 class="text-4xl md:text-5xl font-extrabold text-teal-950 tracking-tight mb-4">
-				School <span class="text-amber-500">Calendar</span>
+	<section class="bg-teal-900 py-24 text-center px-6">
+		<div class="max-w-4xl mx-auto">
+			<span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider uppercase mb-6 inline-block">2025 - 2026</span>
+			<h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
+				School <span class="text-amber-400">Calendar</span>
 			</h1>
-			<p class="text-gray-500 text-lg">
-				A quick, at-a-glance view of our holiday closures and special camps.
+			<p class="text-xl text-teal-50 leading-relaxed max-w-2xl mx-auto font-medium">
+				Plan ahead with our holiday closures and special camp dates.
 			</p>
 		</div>
 	</section>
 
-	<section class="py-12 px-6 bg-white flex-grow">
-		<div class="max-w-5xl mx-auto">
+	<section class="py-20 px-6 bg-slate-50 flex-grow">
+		<div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 			
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+			<div class="bg-white p-10 rounded-3xl shadow-lg border-t-8 border-teal-500">
+				<div class="inline-block bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm mb-6">Term 1</div>
+				<h2 class="text-3xl font-bold text-teal-900 mb-8">Fall & Winter</h2>
 				
-				{seasons.map((season) => (
-					<div class={`rounded-3xl p-8 md:p-10 border shadow-sm transition-transform hover:-translate-y-1 duration-300 ${season.theme}`}>
-						
-						<div class="flex items-center justify-between mb-8 border-b border-black/5 pb-4">
-							<h2 class="text-2xl font-extrabold tracking-tight">{season.title}</h2>
-							<svg class={`w-8 h-8 opacity-70 ${season.iconColor}`} fill="currentColor" viewBox="0 0 24 24">
-								<circle cx="12" cy="12" r="10" opacity="0.2"/>
-								<path d="M12 6v6l4 2"/>
-							</svg>
-						</div>
-
-						<ul class="space-y-6">
-							{season.events.map((item) => (
-								<li class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
-									
-									<div class="flex items-center gap-3">
-										<span class="font-bold text-gray-900 w-24 shrink-0">{item.date}</span>
-										<span class="text-gray-700 font-medium">{item.name}</span>
-									</div>
-
-									<div class="sm:text-right mt-1 sm:mt-0">
-										<span class={`inline-block px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider
-											${item.status === 'Closed' ? 'bg-black/5 text-gray-700' : 'bg-white text-teal-700 shadow-sm border border-black/5'}
-										`}>
-											{item.status}
-										</span>
-									</div>
-
-								</li>
-							))}
-						</ul>
-					</div>
-				))}
-
+				<ul class="space-y-6">
+					{firstHalf.map((item) => (
+						<li class="flex items-start gap-4 pb-6 border-b border-gray-100 last:border-0 last:pb-0">
+							<div class="shrink-0 mt-1">
+								<svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+							</div>
+							<div class="flex-grow">
+								<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
+									<span class="text-gray-900 font-bold text-lg">{item.name}</span>
+									<span class={`inline-block px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider w-fit
+										${item.status === 'Closed' ? 'bg-rose-50 text-rose-600' : 'bg-amber-50 text-amber-600'}
+									`}>
+										{item.status}
+									</span>
+								</div>
+								<span class="text-gray-500 font-medium">{item.date}</span>
+							</div>
+						</li>
+					))}
+				</ul>
 			</div>
 
-			<div class="mt-12 p-6 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left text-slate-500 text-sm">
-				<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-				<p>We observe San Antonio ISD emergency weather closures. Parents will be notified via SMS.</p>
+			<div class="bg-white p-10 rounded-3xl shadow-lg border-t-8 border-amber-500 h-fit">
+				<div class="inline-block bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm mb-6">Term 2</div>
+				<h2 class="text-3xl font-bold text-teal-900 mb-8">Spring & Summer</h2>
+				
+				<ul class="space-y-6">
+					{secondHalf.map((item) => (
+						<li class="flex items-start gap-4 pb-6 border-b border-gray-100 last:border-0 last:pb-0">
+							<div class="shrink-0 mt-1">
+								<svg class={`w-6 h-6 ${item.color === 'amber' ? 'text-amber-500' : 'text-teal-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+							</div>
+							<div class="flex-grow">
+								<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1">
+									<span class="text-gray-900 font-bold text-lg">{item.name}</span>
+									<span class={`inline-block px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider w-fit
+										${item.status === 'Closed' ? 'bg-rose-50 text-rose-600' : 'bg-amber-50 text-amber-600'}
+									`}>
+										{item.status}
+									</span>
+								</div>
+								<span class="text-gray-500 font-medium">{item.date}</span>
+							</div>
+						</li>
+					))}
+				</ul>
 			</div>
 
 		</div>
+
+		<div class="max-w-4xl mx-auto mt-16 p-6 bg-white rounded-2xl border border-gray-100 shadow-sm flex items-start gap-4">
+			<svg class="w-6 h-6 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+			<p class="text-gray-600 leading-relaxed text-sm">
+				<strong>Inclement Weather:</strong> èmote academy follows the San Antonio ISD closure schedule for severe weather. Parents will be notified of any unscheduled closures via email and direct text message.
+			</p>
+		</div>
 	</section>
+
 </Layout>
